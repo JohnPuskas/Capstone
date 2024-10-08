@@ -103,7 +103,7 @@ This site is geared toward record labels to plan a music release. Site access co
 
 
 # USER FLOW DIAGRAM
-- https://drive.google.com/file/d/18b7pbUCHx7EsN371HXPNALqi1D_oxEEw/view?usp=drive_link
+- https://drive.google.com/file/d/1ufypD2t-LKbujWcOiOt9NHwN6ed3-JCr/view?usp=sharing
 
 
 

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image" href="docs/TVT_logo_clip.PNG">
+  <!-- TODO: Remove. The below is for layout testing the google icons before inserting the image files into this project-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=menu" />
+  <title>Track Version Track</title>
+</head>
+<body>
+  <div id="root">
+    <div class="main-document-header-container">
+      <header>
+        <a href="index.html">
+          <img id="logo" src="/docs/TVT_logo_clip.PNG" alt="Track Version Track logo" />
+        </a>
+        <h1 id="page-title">Track Version Track</h1>
+        <nav>
+          <!-- TODO: The below span is to be replaced after importing a hamburger img into the project.
+           It currently is coming from google icons site -->
+          <span class="material-symbols-outlined">
+            menu
+          </span>
+        </nav>
+      </header>
+    </div>
+    <main>
+      <section id="user-login-section">
+        <div id="create-user" class="user-login">
+          <form name="newUser" onsubmit="">
+            <h2 class="user-heading">Create User</h2>
+            <label for="name">Username:</label>
+            <input type="text" name="username" placeholder="enter a new username" />
+            <input type="submit" value="submit">
+          </form>
+        </div>
+        <div id="select-user" class="user-login">
+          <form name="existingUser" onsubmit="">
+            <h2 class="user-heading">Select User</h2>
+            <label for="name">Username:</label>
+            <select>
+              <option>To be populated by call to db.</option>
+              <input type="submit" value="submit">
+            </select>
+          </form>
+        </div>
+      </section>
+      <section id="content">
+        <article id="about-app" class="app-content">
+          <h2>What Track Version Track Is:</h2>
+          <p>Welcome to Track Version Track!
+            Have you ever had trouble tracking <i>what</i> changes were made in <i>which</i> versions of a song within a song project?
+            With Track Version Track, you can turn a confusing mess like this:</p>
+          <img src="docs/Song_Session_Version_Confusion.JPG" alt="screenshot of a confusing mess of file names">
+          <p>Into this:</p>
+          <img src="" alt="screenshot of this app's organizational feature">
+        </article>
+        <article id="how-it-works" class="app-content">
+          <h2>How It Works:</h2>
+            <ol>
+              <li>
+                <p>
+                  Enter titles of song projects for which you wish to track version history details,
+                  and any description of the song project.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Click on any individual song project to enter your specific song version filenames.
+                   For each filename, enter a changelog (the description of changes that were made in that version)
+                </p>
+              </li>
+              <li>
+                <p>
+                  View the full version history and list of changes all in one place, and one page.
+                </p>
+              </li>
+              <li>
+                <p>
+                  You also have the option of entering your ToDo list for the song project.
+                  Add items as they come up. Cross off items as they are completed,
+                  and they are saved into a Done List.
+                </p>
+              </li>
+            </ol>
+            <p>That's it! You'll never again lose track of where changes were made!</p>
+        </article>
+      </section>
+    </main>
+    <footer>
+      <a id="contact-me" href="#">Contact Me</a>
+      <p id="copyright">&copy;2024 John Puskas</p>
+    </footer>
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>

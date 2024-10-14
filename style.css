@@ -1,0 +1,147 @@
+* {
+  /* border: 3px solid red; */
+  border: none;
+  padding: 0%;
+  margin: 0%;
+}
+
+.main-document-header-container {
+  position: sticky;
+  top: 0;
+}
+
+header {
+  background-image: linear-gradient( #66635B, #CBD4C2 85%);
+
+}
+header, footer {
+  display: flex;
+  justify-content: space-around;
+  margin: 0px;
+  padding: 10px;
+  border: none;
+}
+
+.header-bar-item {
+  width: 33%;
+}
+
+main {
+  background-color: #FFFCFF ;
+
+  margin: 0px;
+  padding: 0px;
+  border: none;
+}
+
+footer {
+  display: flex;
+  justify-content: space-around;
+  color: #fff;
+  background-color: #66635B;
+
+}
+
+#page-title {
+  font-family: "Barlow", sans-serif;
+  font-weight: 800;
+  font-size: 50px;
+  padding: 0px;
+  margin: 0px;
+  color: #fff;
+  text-shadow: 0px 4px 16px #000000;
+
+}
+
+h2 {
+  font-size: 40px;
+  font-family: "Barlow", sans-serif;
+  text-shadow: 0px 2px 4px #66635B;
+  text-decoration-line: underline;
+
+}
+
+img {
+  padding: 20px 0px;
+}
+
+section {
+  padding: 30px;
+}
+
+#user-login-section {
+  display: flex ;
+  justify-content: space-around;
+  padding-top: 5%;
+}
+
+.form-input {
+  border: 2px solid #66635B;
+}
+
+
+.user-heading{
+  padding: 5%;
+}
+
+#content {
+  padding: 0% 10%;
+}
+
+.app-content {
+  padding-top: 5%;
+}
+
+#how-it-works {
+  padding-bottom: 5%;
+}
+
+p {
+  font-family: "Noto Sans", sans-serif;
+}
+
+a {
+  color: #fff;
+}
+
+a:hover {
+  color: blue;
+}
+
+.submit-btn {
+  background-color: #66635B;
+  color: white;
+}
+
+#root {
+  padding: 0px;
+  border: none;
+  margin: 0px;
+}
+
+#logo {
+  height: auto;
+  width: auto;
+  max-height: 50px;
+  max-width: 50px;
+  margin-top: 2%;
+  margin-left: 100px;
+}
+
+.demo-image {
+  max-width: 50%;
+  height: auto;
+}
+
+#hamburger-nav-container {
+  display: flex;
+  justify-content: flex-end;
+  height: 100%;
+}
+
+#hamburger {
+  border: 3px solid black;
+  margin: 20px 100px;
+  display: flex;
+  justify-content: center;
+}

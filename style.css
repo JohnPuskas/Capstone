@@ -153,3 +153,17 @@ a:hover {
   display: flex;
   justify-content: center;
 }
+
+#email-info {
+  color:darkslategrey;
+}
+
+#email-info:hover {
+  color: blue;
+}
+
+.contact-text {
+  font-size: xx-large;
+  text-align: center;
+  padding: 5%;
+}

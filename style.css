@@ -77,8 +77,12 @@ section {
 
 .form-input {
   border: 2px solid #66635B;
+  font-size: larger;
 }
 
+label {
+  font-size: x-large;
+}
 
 .user-heading{
   padding: 5%;
@@ -111,6 +115,10 @@ a:hover {
 .submit-btn {
   background-color: #66635B;
   color: white;
+  font-size: x-large;
+  border: none;
+  padding: 3%;
+  margin: 0%;
 }
 
 #root {

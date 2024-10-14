@@ -50,7 +50,7 @@ footer {
   margin: 0px;
   color: #fff;
   text-shadow: 0px 4px 16px #000000;
-
+  text-align: center;
 }
 
 h2 {
@@ -96,7 +96,7 @@ label {
   padding-top: 5%;
 }
 
-#how-it-works {
+.bottom-app-content {
   padding-bottom: 5%;
 }
 

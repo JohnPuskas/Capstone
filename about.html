@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image" href="docs/TVT_logo_clip.PNG">
-  <!-- TODO: Remove. The below is for layout testing the google icons before inserting the image files into this project-->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=menu" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
   <link rel="stylesheet" href="//fonts.google.com/specimen/Barlow/about?preview.text=TVT&query=barlow" >
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap">
   <title>About</title>
@@ -17,14 +17,20 @@
       <a class="header-bar-item" href="index.html">
         <img id="logo" src="/docs/TVT_logo_clip.PNG" alt="Track Version Track logo" />
       </a>
+
       <h1 class="header-bar-item" id="page-title">About</h1>
-      <nav id="hamburger-nav-container" class="header-bar-item">
-        <!-- TODO: The below span is to be replaced after importing a hamburger img into the project.
-         It currently is coming from google icons site -->
-        <span id="hamburger" class="material-symbols-outlined">
-          menu
-        </span>
+
+      <div id="hamburger-nav-container" class="header-bar-item">
+      <nav>
+        <i class="fas fa-bars"></i>
+        <ul class="hidden--mobile nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#">Songs (coming soon)</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
       </nav>
+      </div>
     </header>
   </div>
   <main>

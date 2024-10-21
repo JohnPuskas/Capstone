@@ -1,22 +1,23 @@
 * {
-  /* border: 3px solid red; */
-  border: none;
+  /* border: 2px solid red; */
   padding: 0%;
   margin: 0%;
 }
-
+/*
 .main-document-header-container {
+  position: sticky;
+  top: 0;
+} */
+
+header {
+  background-image: linear-gradient( #66635B, #CBD4C2 85%);
   position: sticky;
   top: 0;
 }
 
-header {
-  background-image: linear-gradient( #66635B, #CBD4C2 85%);
-
-}
 header, footer {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   margin: 0px;
   padding: 10px;
   border: none;
@@ -24,6 +25,9 @@ header, footer {
 
 .header-bar-item {
   width: 33%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 main {
@@ -39,7 +43,6 @@ footer {
   justify-content: space-around;
   color: #fff;
   background-color: #66635B;
-
 }
 
 #page-title {
@@ -71,7 +74,7 @@ section {
 
 #user-login-section {
   display: flex ;
-  justify-content: space-around;
+  justify-content: space-between;
   padding-top: 5%;
 }
 
@@ -79,6 +82,7 @@ section {
   border: 2px solid #66635B;
   font-size: larger;
   border-radius: 5%;
+  margin: 5px;
 }
 
 label {
@@ -132,10 +136,8 @@ a:hover {
 #logo {
   height: auto;
   width: auto;
-  max-height: 50px;
-  max-width: 50px;
-  margin-top: 2%;
-  margin-left: 100px;
+  max-height: 100px;
+  max-width: 100px;
 }
 
 .demo-image {
@@ -143,17 +145,28 @@ a:hover {
   height: auto;
 }
 
-#hamburger-nav-container {
+ #hamburger-nav-container {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   height: 100%;
 }
 
-#hamburger {
-  border: 3px solid black;
+.fa-bars {
+  color: #fff;
+  font-size: 50px;
   margin: 20px 100px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+nav > ul {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-content: end;
+  display: none;
+  visibility: hidden;
 }
 
 #contact-form-container {
@@ -162,10 +175,6 @@ a:hover {
   align-items: center;
   gap: 40px;
 }
-/*
-#name-email-phone {
-  margin: 20px;
-} */
 
 #form-elements-container-2 {
   display: flex;
@@ -190,4 +199,62 @@ a:hover {
 .contact-text-heading {
   text-align: center;
   padding: 5%;
+}
+
+@media (max-width: 500px) {
+  main {
+    flex-direction: column;
+    width: auto;
+  }
+
+  header {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  #page-title{
+    flex-grow: 3;
+  }
+
+  header, footer {
+    flex-direction: row;
+  }
+
+  #user-login-section {
+    flex-direction: column;
+  }
+
+  #page-title {
+    font-size: 30px;
+  }
+
+  .submit-btn {
+    font-size: medium;
+  }
+
+  label {
+    font-size: 20px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  .demo-image {
+    max-width: 100%;
+  }
+
+  #logo {
+    max-height: 50%;
+    max-width: 50%;
+  }
+
+/*
+  nav > ul {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+  } */
+
 }

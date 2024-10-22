@@ -1,3 +1,7 @@
+document.querySelector(".fa-bars").addEventListener("click", () => {
+  document.querySelector("nav > ul").classList.toggle("hidden--mobile");
+});
+
 const contactForm = document.querySelector("#contact-form");
 
 contactForm.addEventListener("submit", event => {

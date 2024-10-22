@@ -1,70 +1,156 @@
 * {
-  /* border: 2px solid red; */
   padding: 0%;
   margin: 0%;
 }
 
+/* ////////////////////////////////////////////// */
+/* Header and its content styling */
 header {
   background-image: linear-gradient( #66635B, #CBD4C2 85%);
   position: sticky;
   top: 0;
+  padding: 0%;
+  margin: 0%;
+  display: grid;
+  grid-template-columns:25% 50% 25%;
 }
 
-header, footer {
-  display: flex;
-  justify-content: space-evenly;
-  margin: 0px;
-  padding: 10px;
-  border: none;
+/* The header is wrapped in the #sticky div
+  This is to allow the option to later include nav/hamburger as sticky
+*/
+#sticky {
+  position: sticky;
+  top: 0;
 }
 
 .header-bar-item {
-  width: 33%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  text-align: center;
+  padding: 0%;
+  margin: 0%;
 }
 
-main {
-  background-color: #FFFCFF ;
-
-  margin: 0px;
-  padding: 0px;
-  border: none;
+#logo {
+  max-height: 30px;
+  max-width: 30px;
+  margin: 0%;
+  padding: 1%;
 }
 
-footer {
-  display: flex;
-  justify-content: space-around;
-  color: #fff;
-  background-color: #66635B;
-}
-
+/* The h1 in the header */
 #page-title {
   font-family: "Barlow", sans-serif;
-  font-weight: 800;
-  font-size: 50px;
-  padding: 0px;
+  font-weight: 700;
+  font-size: 1.5rem;
+  padding: 1px;
   margin: 0px;
   color: #fff;
   text-shadow: 0px 4px 16px #000000;
   text-align: center;
+  text-wrap: nowrap;
+}
+
+/* user login button in header, also inherits styling from submit-btn class */
+#user-login-btn {
+  padding: 1%;
+  margin: 1% 30%;
+  background-color:#CBD4C2;
+  color: #000000;
+}
+
+/* ////////////////////////////////////////////// */
+/* Styling for the Nav */
+#hamburger-nav-container {
+  padding: 0%;
+  margin: 0%;
+  top: 0%;
+}
+
+ nav {
+  padding: 0%;
+  margin: 0%;
+}
+
+nav > .fa-bars {
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1%;
+  margin: 1%;
+  border: 1px solid black;
+  border-radius: 20%;
+  background-color: rgba(203, 212, 194, 0.3);
+}
+
+nav > ul {
+  list-style-type: none;
+
+}
+
+.nav-links > li:hover {
+  transform: scale(1.1);
+}
+
+li > a {
+  color: black;
+}
+
+/* ////////////////////////////////////////////// */
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 0px;
+  padding: 10px;
+  border: none;
+  color: #fff;
+  background-color: #66635B;
+}
+
+footer > a {
+  color: #fff;
+}
+
+/* ////////////////////////////////////////////// */
+/* Main page content */
+main {
+  background-color: #FFFCFF ;
+  margin: 0px;
+  padding: 0px;
+  border: none;
 }
 
 h2 {
-  font-size: 40px;
+  font-size: 20px;
   font-family: "Barlow", sans-serif;
   text-shadow: 0px 2px 4px #66635B;
   text-decoration-line: underline;
-
 }
 
 img {
   padding: 20px 0px;
 }
 
+p {
+  font-family: "Noto Sans", sans-serif;
+}
+
+a:hover {
+  color: blue;
+}
+
+.demo-image {
+  max-width: 50%;
+  height: auto;
+}
+
 section {
   padding: 30px;
+}
+
+/* The headings above the create/select user sections */
+.user-heading{
+  padding: 5%;
 }
 
 #user-login-section {
@@ -73,6 +159,29 @@ section {
   padding-top: 5%;
 }
 
+#content {
+  padding: 0% 10%;
+}
+
+/* Used for the Article sections throughout the app */
+.app-content {
+  padding-top: 5%;
+}
+
+/* Content just above the footer */
+.bottom-app-content {
+  padding-bottom: 5%;
+}
+
+.contact-text-heading {
+  text-align: center;
+  padding: 5%;
+}
+
+/* ////////////////////////////////////////////// */
+/* Forms related styling */
+
+/* form-input class includes inputs from multiple pages */
 .form-input, #how-they-heard {
   border: 2px solid #66635B;
   font-size: larger;
@@ -80,88 +189,13 @@ section {
   margin: 5px;
 }
 
-label {
-  font-size: x-large;
-}
-
-.user-heading{
-  padding: 5%;
-}
-
-#content {
-  padding: 0% 10%;
-}
-
-.app-content {
-  padding-top: 5%;
-}
-
-.bottom-app-content {
-  padding-bottom: 5%;
-}
-
-p {
-  font-family: "Noto Sans", sans-serif;
-}
-
-a {
-  color: #fff;
-}
-
-a:hover {
-  color: blue;
-}
-
 .submit-btn {
   background-color: #66635B;
   color: white;
-  font-size: x-large;
-  border: 4px solid black;
+  border: 2px solid black;
   padding: 3%;
   margin: 5%;
   border-radius: 10%;
-}
-
-#root {
-  padding: 0px;
-  border: none;
-  margin: 0px;
-}
-
-#logo {
-  height: auto;
-  width: auto;
-  max-height: 100px;
-  max-width: 100px;
-}
-
-.demo-image {
-  max-width: 50%;
-  height: auto;
-}
-
- #hamburger-nav-container {
-  display: flex;
-  justify-content: center;
-  height: 100%;
-}
-
-.fa-bars {
-  color: #fff;
-  font-size: 50px;
-  margin: 20px 100px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-}
-
-nav > ul {
-  display: flex;
-  justify-content: space-evenly;
-  flex-direction: column;
-  align-content: end;
-  display: none;
-  visibility: hidden;
 }
 
 #contact-form-container {
@@ -171,49 +205,19 @@ nav > ul {
   gap: 40px;
 }
 
-#form-elements-container-2 {
+#form-elements-container-2, #how-they-heard, #msg {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-#how-they-heard, #msg {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
-#email-info {
-  color:darkslategrey;
-}
-
-#email-info:hover {
-  color: blue;
-}
-
-.contact-text-heading {
-  text-align: center;
-  padding: 5%;
-}
-
-@media (max-width: 500px) {
+/* ////////////////////////////////////////////// */
+/* Mobile Styling */
+@media (max-width: 549px) {
   main {
     flex-direction: column;
     width: auto;
-  }
-
-  header {
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-
-  #page-title{
-    flex-grow: 3;
-  }
-
-  header, footer {
-    flex-direction: row;
   }
 
   #user-login-section {
@@ -221,7 +225,7 @@ nav > ul {
   }
 
   #page-title {
-    font-size: 30px;
+    font-size: 1.3rem;
   }
 
   .submit-btn {
@@ -240,16 +244,51 @@ nav > ul {
     max-width: 100%;
   }
 
-  #logo {
-    max-height: 50%;
-    max-width: 50%;
+  /* ////////////////////////////////////////////// */
+  /* Mobile nav styles */
+  .hidden--mobile {
+    display: none;
   }
 
-/*
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-links > li {
+    margin: 0%;
+    padding: 8% 0%;
+    width: 100%;
+    text-align: center;
+    border-bottom: 2px solid black;
+  }
+
+}
+/* END mobile styling */
+/* ////////////////////////////////////////////// */
+
+/* ////////////////////////////////////////////// */
+/* Nav bar styling when not on mobile screens */
+@media (min-width: 550px) {
+  nav > .fa-bars {
+  display: none;
+  visibility: hidden;
+  }
+
   nav > ul {
     display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
-  } */
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #66635B;
+  }
 
+  .nav-links > li {
+    margin: 2px 0px;
+    border: 1px solid black;
+    padding: 4px 2px;
+    font-size: 12px;
+    background-color: #CBD4C2;
+    width: 25%;
+  }
 }

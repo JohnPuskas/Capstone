@@ -2,7 +2,8 @@ import html from "html-literal";
 import * as views from "../views";
 
 export default state => html`
-  ${views["home"]()} ${views["about"]()} ${views["contact"]()}
+  ${views["home"]()} ${views["songs"]()} ${views["about"]()}
+  ${views["contact"]()}
 `;
 
 // export default state => html`

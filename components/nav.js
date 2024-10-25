@@ -1,13 +1,11 @@
 import html from "html-literal";
+import navItem from "./navItem";
 
-export default state => html`
+export default navItems => html`
   <nav id="hamburger-nav-container" class="header-bar-item">
     <i class="fas fa-bars"></i>
     <ul class="hidden--mobile nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="#">Songs (coming soon)</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      ${navItems.map(item => navItem(item)).join("")}
     </ul>
   </nav>
 `;

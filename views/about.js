@@ -1,5 +1,5 @@
 import html from "html-literal";
-// import imageOfMe from "..assets/img/ME.png";
+import imageOfMe from "../assets/img/ME.jpg";
 
 export default () => html`
   <main>
@@ -28,7 +28,7 @@ export default () => html`
           <h2>About The Developer</h2>
           <img
             id="pic-of-me"
-            src=""
+            src="${imageOfMe}"
             alt="picture of the developer of this application"
           />
           <p>

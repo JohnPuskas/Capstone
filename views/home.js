@@ -1,4 +1,5 @@
 import html from "html-literal";
+import songFilesScreenshot from "../assets/img/Song_Session_Version_Confusion.jpg";
 
 export default () => html`
   <main>
@@ -43,7 +44,7 @@ export default () => html`
         </p>
         <img
           class="demo-image"
-          src=""
+          src="${songFilesScreenshot}"
           alt="screenshot of a confusing mess of file names"
         />
         <p>Into this:</p>

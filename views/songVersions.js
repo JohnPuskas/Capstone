@@ -1,4 +1,5 @@
 import html from "html-literal";
+import { songVersions as versions } from "../store";
 
 export default () => html`
   <main>
@@ -6,14 +7,11 @@ export default () => html`
     <section id="versions">
       <div class="version-container">
         <div class="version-title-area">
-          <h3>This is a Version Title</h3>
+          <h3>${versions.songVersionTitle}</h3>
         </div>
         <div class="changeLog-area">
           <p>
-            This is a version changelog. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Magni quibusdam quod ipsum suscipit id in fugiat
-            nesciunt et aliquid minima quos, iste temporibus excepturi harum
-            sequi dignissimos laboriosam, numquam error?
+            ${versions.versionChangelog}
           </p>
         </div>
         <div class="edit-delete-buttons">
@@ -23,14 +21,11 @@ export default () => html`
       </div>
       <div class="version-container">
         <div class="version-title-area">
-          <h3>This is a Version Title</h3>
+          <h3>${versions.songVersionTitle}</h3>
         </div>
         <div class="changeLog-area">
           <p>
-            This is a version changelog. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Magni quibusdam quod ipsum suscipit id in fugiat
-            nesciunt et aliquid minima quos, iste temporibus excepturi harum
-            sequi dignissimos laboriosam, numquam error?
+            ${versions.versionChangelog}
           </p>
         </div>
         <div class="edit-delete-buttons">
@@ -40,14 +35,11 @@ export default () => html`
       </div>
       <div class="version-container">
         <div class="version-title-area">
-          <h3>This is a Version Title</h3>
+          <h3>${versions.songVersionTitle}</h3>
         </div>
         <div class="changeLog-area">
           <p>
-            This is a version changelog. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Magni quibusdam quod ipsum suscipit id in fugiat
-            nesciunt et aliquid minima quos, iste temporibus excepturi harum
-            sequi dignissimos laboriosam, numquam error?
+            ${versions.versionChangelog}
           </p>
         </div>
         <div class="edit-delete-buttons">

@@ -29,8 +29,14 @@ router.hooks({
             `https://api.openweathermap.org/data/2.5/weather?appid=${process.env.
               OPEN_WEATHER_MAP_API_KEY}&q=st%20louis&units=imperial`)
           .then(response => {
-            console.log("Weather response data:", response.data);
-
+            console.log("this is the response data:", response.data);
+            store.home.weather = {
+              city: response.data.name,
+              temp: response.data.main.temp,
+              feelsLike: response.data.main.feels_like,
+              description: response.data.weather[0].main
+            }
+            console.log("The Store?", store.home.weather);
             done();
           })
           .catch(error => {
@@ -42,13 +48,13 @@ router.hooks({
         done();
     }
   },
-  already: match => {
+  already: (match) => {
     const view = match?.data?.view ? camelCase(match.data.view) : "home";
 
     render(store[view]);
   },
-  after: match => {
-    router.update
+  after: (match) => {
+    router.updatePageLinks();
 
     // toggle nav hamburger menu
     document.querySelector(".fa-bars").addEventListener("click", () => {

@@ -1,4 +1,5 @@
 export default {
   header: "Track Version Track",
-  view: "home"
+  view: "home",
+  weather: {}
 };

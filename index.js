@@ -20,7 +20,7 @@ function render(state = store.home) {
 
 router.hooks({
   before: (done, match) => {
-    const view = match?.data?.view ? camelCase(mat.data.view) : "home";
+    const view = match?.data?.view ? camelCase(match.data.view) : "home";
 
     switch (view) {
       case "home":

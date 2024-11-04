@@ -1,7 +1,7 @@
 import html from "html-literal";
 import songFilesScreenshot from "../assets/img/Song_Session_Version_Confusion.jpg";
 
-export default () => html`
+export default state => html`
   <main>
     <section id="user-login-section">
       <div id="create-user" class="user-login">
@@ -88,6 +88,15 @@ export default () => html`
           That's it! You'll never again lose track of where changes were made!
         </p>
       </article>
+    </section>
+    <section>
+      <p>
+        The weather in ${state.weather.city} is ${state.weather.description}.
+      </p>
+      <p>
+        Temperature is ${state.weather.temp}F, and it feels like
+        ${state.weather.feelsLike}F.
+      </p>
     </section>
   </main>
 `;

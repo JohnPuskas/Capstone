@@ -22,21 +22,44 @@ router.hooks({
   before: (done, match) => {
     const view = match?.data?.view ? camelCase(match.data.view) : "home";
 
+    // switch (view) {
+    //   case "home":
+    //     axios
+    //       .get(
+    //         `https://api.openweathermap.org/data/2.5/weather?appid=${process.env.
+    //           OPEN_WEATHER_MAP_API_KEY}&q=st%20louis&units=imperial`)
+    //       .then(response => {
+    //         console.log("this is the response data:", response.data);
+    //         store.home.weather = {
+    //           city: response.data.name,
+    //           temp: response.data.main.temp,
+    //           feelsLike: response.data.main.feels_like,
+    //           description: response.data.weather[0].main
+    //         }
+    //         console.log("The Store?", store.home.weather);
+    //         done();
+    //       })
+    //       .catch(error => {
+    //         console.log("I broke it!: ", error);
+    //         done();
+    //       });
+    //     break;
+    //   default:
+    //     done();
+    // }
     switch (view) {
       case "home":
         axios
           .get(
-            `https://api.openweathermap.org/data/2.5/weather?appid=${process.env.
-              OPEN_WEATHER_MAP_API_KEY}&q=st%20louis&units=imperial`)
+            `https://zenquotes.io/api/random/${process.env.ZENQUOTES_API_KEY}`)
           .then(response => {
             console.log("this is the response data:", response.data);
-            store.home.weather = {
-              city: response.data.name,
-              temp: response.data.main.temp,
-              feelsLike: response.data.main.feels_like,
-              description: response.data.weather[0].main
+            store.home.quote = {
+              quoteText: response.data[0].q,
+              quoteAuthor: response.data[0].a,
+              quoteHtml: response.data[0].h
             }
-            console.log("The Store?", store.home.weather);
+            console.log("The Store?", store.home.quote);
             done();
           })
           .catch(error => {

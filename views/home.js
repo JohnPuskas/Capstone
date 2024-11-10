@@ -90,13 +90,18 @@ export default state => html`
       </article>
     </section>
     <section>
-      <p>
+      <!-- <p>
         The weather in ${state.weather.city} is ${state.weather.description}.
       </p>
       <p>
         Temperature is ${state.weather.temp}F, and it feels like
         ${state.weather.feelsLike}F.
-      </p>
+      </p> -->
+      <article>
+        <h2>Some Inspiration:</h2>
+        <blockquote>${state.quote.quoteText}</blockquote>
+        <p>-${state.quote.quoteAuthor}</p>
+      </article>
     </section>
   </main>
 `;

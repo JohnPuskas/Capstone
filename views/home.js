@@ -88,10 +88,8 @@ export default state => html`
           That's it! You'll never again lose track of where changes were made!
         </p>
       </article>
-    </section>
-    <section>
-      <article>
-        <h2>Some Inspiration:</h2>
+      <article id="quote" class="app-content">
+        <h2>Get Inspired:</h2>
         <blockquote>${state.quote.quoteText}</blockquote>
         <p>-${state.quote.quoteAuthor}</p>
       </article>

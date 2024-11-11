@@ -168,6 +168,15 @@ section {
   padding-top: 5%;
 }
 
+#quote {
+  text-align: center;
+  margin: 10px
+}
+blockquote {
+  padding: 10px;
+  font-size: 18px;
+}
+
   /* ////////////////////////////////////////////// */
 /* Styling for the 'Songs' page */
 
@@ -179,7 +188,7 @@ section {
   border-bottom: 2px solid black;
 }
 
-.song-container {
+.song-container, #quote {
   display: grid;
   background-color: #CBD4C2;
   padding: 1%;

@@ -88,15 +88,11 @@ export default state => html`
           That's it! You'll never again lose track of where changes were made!
         </p>
       </article>
-    </section>
-    <section>
-      <p>
-        The weather in ${state.weather.city} is ${state.weather.description}.
-      </p>
-      <p>
-        Temperature is ${state.weather.temp}F, and it feels like
-        ${state.weather.feelsLike}F.
-      </p>
+      <article id="quote" class="app-content">
+        <h2>Get Inspired:</h2>
+        <blockquote>${state.quote.quoteText}</blockquote>
+        <p>-${state.quote.quoteAuthor}</p>
+      </article>
     </section>
   </main>
 `;

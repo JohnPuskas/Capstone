@@ -3,6 +3,7 @@ import * as store from "./store";
 import Navigo from "navigo";
 import { camelCase } from "lodash";
 import axios from "axios";
+import * as utils from "./utils";
 
 const router = new Navigo("/");
 
@@ -53,11 +54,9 @@ router.hooks({
   },
   after: (match) => {
     router.updatePageLinks();
-
     // toggle nav hamburger menu
-    document.querySelector(".fa-bars").addEventListener("click", () => {
-      document.querySelector("nav > ul").classList.toggle("hidden--mobile");
-    });
+    utils.toggleNav();
+
   }
 });
 
@@ -74,19 +73,3 @@ router.on({
     }
   }
 }).resolve();
-
-
-/// ! Temporarily commented out due to elements being unavailable at this time
-// const contactForm = document.querySelector("#contact-form");
-
-// contactForm.addEventListener("submit", event => {
-//   event.preventDefault();
-
-//   // Below is or debugging
-//   console.log("form submitted");
-//   const inputs = event.target.elements;
-
-//   for (let input of inputs) {
-//     console.log(`input name: ${input.name}, input value: ${input.value}`);
-//   }
-// });

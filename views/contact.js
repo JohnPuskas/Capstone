@@ -5,7 +5,11 @@ export default () => html`
     <h2>
       <p class="contact-text-heading">I would love to hear from you!</p>
     </h2>
-    <form id="contact-form" action="" method="POST">
+    <form
+      id="contact-form"
+      action="https://formspree.io/f/movqwnbq"
+      method="POST"
+    >
       <div id="contact-form-container">
         <div id="name-email-phone">
           <div class="contact-field">

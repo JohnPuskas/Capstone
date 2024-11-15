@@ -1,4 +1,5 @@
 export default {
   header: "Songs",
-  view: "songs"
+  view: "songs",
+  songs: []
 };

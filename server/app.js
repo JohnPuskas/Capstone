@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
+import songs from "./routers/songs.js";
 
 dotenv.config();
 
@@ -37,5 +38,7 @@ app.use(express.json());
 app.get("/status", (request, response) => {
   response.json({ message: "Service Healthy" });
 });
+
+app.use("/songs", songs);
 
 app.listen(4040, () => console.log("Listening on port 4040"));

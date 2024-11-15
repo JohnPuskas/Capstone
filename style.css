@@ -208,11 +208,15 @@ blockquote {
   text-align: center;
 }
 
+.song-input{
+  width: 100%;
+}
+
 .edit-delete-buttons {
   text-align: center;
 }
 
-.edit-btn {
+.edit-btn, .save-btn {
   background-color:green;
   color: white;
 }

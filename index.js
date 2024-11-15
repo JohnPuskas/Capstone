@@ -43,16 +43,35 @@ router.hooks({
             done();
           });
         break;
+      case "songs":
+        utils.songsBeforeHook(done);
+        break
       default:
         done();
     }
   },
-  already: (match) => {
+  already: async (match) => {
     const view = match?.data?.view ? camelCase(match.data.view) : "home";
 
-    render(store[view]);
+    if (view === "songs") {
+      await utils.songsBeforeHook();
+    }
+    await render(store[view]);
+
+    if (view === "songs") {
+      await utils.songsAfterHook(router);
+    }
   },
-  after: (match) => {
+  after: async (match) => {
+    const view = match?.data?.view ? camelCase(match.data.view) : "home";
+
+    switch (view) {
+      case "songs":
+        utils.songsAfterHook(router);
+        break;
+      default:
+        break;
+    }
     router.updatePageLinks();
     // toggle nav hamburger menu
     utils.toggleNav();

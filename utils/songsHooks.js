@@ -2,6 +2,7 @@ import * as store from "../store";
 import axios from "axios";
 
 export function afterHook(router) {
+  // Create a new Song
   document.querySelector("#song-form").addEventListener("submit", event => {
     event.preventDefault();
 
@@ -28,9 +29,19 @@ export function afterHook(router) {
         console.log("I broke it!", error);
       });
   });
+
+  const seeVersionsButtons = document.querySelectorAll(".see-version");
+  seeVersionsButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      let buttonId = button.id;
+      router.navigate(`songVersions?id=${buttonId}`);
+    });
+    // .then(router.navigate(`songVersions/${buttonID}`));
+  });
 }
 
 export function beforeHook(done = () => { }) {
+  // Display all songs
   axios
     .get(`${process.env.TVT_API_URL}/songs`)
     .then(response => {

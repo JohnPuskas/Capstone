@@ -17,7 +17,7 @@ export default state => html`
         <div class="edit-delete-buttons">
           <button class="edit-btn">Edit</button>
           <button class="delete-btn">Delete</button>
-          <button class="see-version">See Song Versions</button>
+          <button id=${song._id} class="see-version">See Song Versions</button>
         </div>
       </div>`;
     })

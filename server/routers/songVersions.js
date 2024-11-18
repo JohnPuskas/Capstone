@@ -20,4 +20,34 @@ router.get("/", async (request, response) => {
   }
 });
 
+router.put("/", async (request, response) => {
+  try {
+    const body = request.body;
+    // console.log("THE REQUEST STARTS HERE:", request);
+    console.log("Request body:", body);
+    console.log("Request query:", request._parsedUrl.query);
+    const songId = request._parsedUrl.query.slice(1);
+    const data = await Song.findByIdAndUpdate(
+      songId,
+      {
+        $push: {
+          versions: body
+        }
+      },
+      {
+        new: true,
+        runValidators: true
+      }
+    );
+    response.json(data);
+  } catch (error) {
+    console.log(error);
+
+    if ("name" in error && error.name === "ValidationError")
+      return response.status(400).json(error.errors);
+
+    return response.status(500).json(error.errors);
+  }
+});
+
 export default router;

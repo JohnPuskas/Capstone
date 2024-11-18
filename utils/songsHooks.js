@@ -34,7 +34,9 @@ export function afterHook(router) {
   seeVersionsButtons.forEach(button => {
     button.addEventListener("click", () => {
       let buttonId = button.id;
+      console.log(buttonId);
       router.navigate(`songVersions?id=${buttonId}`);
+      // router.navigate(`songVersions/${buttonId}`);
     });
     // .then(router.navigate(`songVersions/${buttonID}`));
   });
@@ -47,6 +49,8 @@ export function beforeHook(done = () => { }) {
     .then(response => {
       console.log("this is the songs Response", response);
       store.songs.songs = response.data;
+      console.log(store.songs);
+
       done();
     })
     .catch(error => {

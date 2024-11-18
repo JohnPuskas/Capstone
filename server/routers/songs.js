@@ -24,7 +24,7 @@ router.post("/", async (request, response) => {
 router.get("/", async (request, response) => {
   try {
     const query = request.query;
-
+    console.log(query);
     const data = await Song.find(query);
 
     response.json(data);

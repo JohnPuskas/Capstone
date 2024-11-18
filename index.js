@@ -21,8 +21,11 @@ function render(state = store.home) {
 
 router.hooks({
   before: (done, match) => {
+    console.log("This is the match param", match);
+    console.log(match.params);
+    // console.log(match.params.id);
     const view = match?.data?.view ? camelCase(match.data.view) : "home";
-
+    console.log("Thisi s the view:", view);
     switch (view) {
       case "home":
         axios
@@ -45,7 +48,11 @@ router.hooks({
         break;
       case "songs":
         utils.songsBeforeHook(done);
-        break
+        break;
+      case "songVersions":
+        // utils.songsBeforeHook
+        utils.songVersionsBeforeHook(done, match.params.id);
+        break;
       default:
         done();
     }

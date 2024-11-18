@@ -1,4 +1,6 @@
+import { default as songs } from "./songs";
+
 export default {
-  header: "Song Versions",
+  header: `Versions`,
   view: "songVersions"
 };

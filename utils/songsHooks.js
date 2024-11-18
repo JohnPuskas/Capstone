@@ -2,6 +2,7 @@ import * as store from "../store";
 import axios from "axios";
 
 export function afterHook(router) {
+  // Create a new Song
   document.querySelector("#song-form").addEventListener("submit", event => {
     event.preventDefault();
 
@@ -20,22 +21,36 @@ export function afterHook(router) {
       .post(`${process.env.TVT_API_URL}/songs`, requestData)
       .then(response => {
         console.log("This the AFTER RESPONSE:", response);
-        store.songs.songs.push(response.data).then(router.navigate("songs"));
-
-        // router.navigate("/songs");
+        store.songs.songs.push(response.data);
+        // .then(router.navigate("songs"))
+        router.navigate("/songs");
       })
       .catch(error => {
         console.log("I broke it!", error);
       });
   });
+
+  const seeVersionsButtons = document.querySelectorAll(".see-version");
+  seeVersionsButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      let buttonId = button.id;
+      console.log(buttonId);
+      router.navigate(`songVersions?id=${buttonId}`);
+      // router.navigate(`songVersions/${buttonId}`);
+    });
+    // .then(router.navigate(`songVersions/${buttonID}`));
+  });
 }
 
 export function beforeHook(done = () => { }) {
+  // Display all songs
   axios
     .get(`${process.env.TVT_API_URL}/songs`)
     .then(response => {
       console.log("this is the songs Response", response);
       store.songs.songs = response.data;
+      console.log(store.songs);
+
       done();
     })
     .catch(error => {

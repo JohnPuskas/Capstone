@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import version from "./Version.js";
 
 const songSchema = new mongoose.Schema({
   title: {
@@ -10,7 +11,7 @@ const songSchema = new mongoose.Schema({
     type: String,
     validate: /^[A-Za-z0-9 ]*$/
   },
-  versions: [String]
+  versions: [version.schema]
   // type: array of SongVersion (similar to Notes from the curriculum ch.9.4)
 });
 

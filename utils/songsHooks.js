@@ -21,9 +21,9 @@ export function afterHook(router) {
       .post(`${process.env.TVT_API_URL}/songs`, requestData)
       .then(response => {
         console.log("This the AFTER RESPONSE:", response);
-        store.songs.songs.push(response.data).then(router.navigate("songs"));
-
-        // router.navigate("/songs");
+        store.songs.songs.push(response.data);
+        // .then(router.navigate("songs"))
+        router.navigate("/songs");
       })
       .catch(error => {
         console.log("I broke it!", error);

@@ -66,7 +66,7 @@ router.hooks({
     await render(store[view]);
 
     if (view === "songs") {
-      await utils.songsAfterHook(router);
+      utils.songsAfterHook(router);
     }
   },
   after: async (match) => {

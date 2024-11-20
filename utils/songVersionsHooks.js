@@ -26,9 +26,10 @@ export function afterHook(router, queryParam) {
       )
       .then(response => {
         console.log("This the AFTER RESPONSE:", response);
-        store.songs.songs.versions.push(response.data);
+        // The below Might be the problem. I need the _id of the create Version, then push that to versions?
+        // store.songs.songs.push(response.data);
         // .then(router.navigate("songs"))
-        router.navigate(`songVersions?id=${queryParam}`);
+        router.navigate(`/songVersions?id=${queryParam}`);
       })
       .catch(error => {
         console.log("I broke it!", error);
@@ -44,10 +45,14 @@ export function beforeHook(queryParam, done = () => { }) {
         id: `${queryParam}`
       }
     })
+    // .then(() => {
+    //   console.log("Does this execute before render??");
+    // })
     .then(response => {
+      store.songVersions.versions = response.data.versions;
+      store.songVersions.songId = queryParam;
       console.log("The songVersions page response is....:", response);
-      store.songs.songs.versions = response.data.versions;
-      console.log(response.data);
+      console.log(response.data.versions);
       done();
     })
     .catch(error => {

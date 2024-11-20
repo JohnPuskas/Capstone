@@ -1,12 +1,10 @@
 import html from "html-literal";
-import { default as songs } from "../store/songs";
 
 export default state =>
   html`
     <main>
       <section id="songs">
-        ${console.log(songs.songs)}
-        ${songs.songs.versions
+        ${state.versions
       .map(version => {
         return `<div class="song-container">
         <div class="song-title-area">
@@ -51,7 +49,7 @@ export default state =>
             <input
               type="submit"
               name="submitButton"
-              id="${songs.songs._id}"
+              id="${state.songId}"
               class="save-btn"
               value="Save"
             />
@@ -67,8 +65,6 @@ export default state =>
         </div>
         <p class="add-new">Add New</p>
       </div>
-      ${console.log(songs)}
-      <p>${songs.songs._id}</p>
     </main>
   `;
 

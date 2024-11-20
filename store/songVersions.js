@@ -1,4 +1,6 @@
 export default {
   header: `Versions`,
-  view: "songVersions"
+  view: "songVersions",
+  versions: [],
+  songId: ""
 };

@@ -25,8 +25,10 @@ router.put("/", async (request, response) => {
     const body = request.body;
     // console.log("THE REQUEST STARTS HERE:", request);
     console.log("Request body:", body);
-    console.log("Request query:", request._parsedUrl.query);
-    const songId = request._parsedUrl.query.slice(1);
+    console.log("Request query:", request.query);
+    // const songId = request._parsedUrl.query.slice(1);
+    const songId = request.query.id;
+
     const data = await Song.findByIdAndUpdate(
       songId,
       {

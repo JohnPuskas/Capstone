@@ -67,27 +67,3 @@ export default state =>
       </div>
     </main>
   `;
-
-/*
-      <section id="songs">
-        ${console.log(state.songs)}
-        ${songs.versions
-      .map(version => {
-        return `<div class="song-container">
-        <div class="song-title-area">
-          <h3>${version.title}</h3>
-        </div>
-        <div class="song-description-area">
-          <p>
-            ${version.changes}
-          </p>
-        </div>
-        <div class="edit-delete-buttons">
-          <button class="edit-btn">Edit</button>
-          <button class="delete-btn">Delete</button>
-        </div>
-      </div>`;
-      })
-      .join("")}
-      </section>
-*/

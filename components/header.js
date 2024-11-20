@@ -4,13 +4,11 @@ import logo from "../assets/img/TVT_logo_clip.jpg";
 export default state => html`
   <div id="sticky">
     <header>
-      <a class="header-bar-item" href="index.html">
+      <div class="header-bar-item">
         <img id="logo" src="${logo}" alt="Track Version Track logo" />
-      </a>
+      </div>
       <h1 class="header-bar-item" id="page-title">${state.header}</h1>
-      <button class="header-bar-item submit-btn" id="user-login-btn">
-        Login
-      </button>
+      <p class="header-bar-item"></p>
     </header>
   </div>
 `;

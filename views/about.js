@@ -2,6 +2,7 @@ import html from "html-literal";
 import imageOfMe from "../assets/img/ME.jpg";
 
 export default () => html`
+  ${window.scrollTo(0, 0)}
   <main>
     <div class="about-page-articles-container">
       <section id="content">

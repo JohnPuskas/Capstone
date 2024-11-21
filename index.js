@@ -23,7 +23,6 @@ router.hooks({
   before: (done, match) => {
     console.log("This is the match param", match);
     console.log(match.params);
-    // console.log(match.params.id);
     const view = match?.data?.view ? camelCase(match.data.view) : "home";
     console.log("Thisi s the view:", view);
     switch (view) {
@@ -50,8 +49,7 @@ router.hooks({
         utils.songsBeforeHook(done);
         break;
       case "songVersions":
-        // utils.songsBeforeHook
-        utils.songVersionsBeforeHook(done, match.params.id);
+        utils.songVersionsBeforeHook(match.params.id, done);
         break;
       default:
         done();
@@ -59,14 +57,28 @@ router.hooks({
   },
   already: async (match) => {
     const view = match?.data?.view ? camelCase(match.data.view) : "home";
+    console.log("match params already:", match.params);
 
     if (view === "songs") {
       await utils.songsBeforeHook();
     }
+
+    if (view === "songVersions") {
+      await utils.songVersionsBeforeHook(match.params.id);
+      console.log("before hook fired!");
+    }
+
+    console.log("This is the VIEW:", view);
+    console.log("This is the store:", store[view]);
     await render(store[view]);
+
 
     if (view === "songs") {
       utils.songsAfterHook(router);
+    }
+
+    if (view === "songVersions") {
+      utils.songVersionsAfterHook(router, match.params.id);
     }
   },
   after: async (match) => {
@@ -76,6 +88,8 @@ router.hooks({
       case "songs":
         utils.songsAfterHook(router);
         break;
+      case "songVersions":
+        utils.songVersionsAfterHook(router, match.params.id);
       default:
         break;
     }

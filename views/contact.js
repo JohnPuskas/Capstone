@@ -1,6 +1,7 @@
 import html from "html-literal";
 
 export default () => html`
+  ${window.scrollTo(0, 0)}
   <main>
     <h2>
       <p class="contact-text-heading">I would love to hear from you!</p>

@@ -21,8 +21,7 @@ export function afterHook(router) {
       .post(`${process.env.TVT_API_URL}/songs`, requestData)
       .then(response => {
         console.log("This the AFTER RESPONSE:", response);
-        store.songs.songs.push(response.data);
-        // .then(router.navigate("songs"))
+        store.songs.songs.unshift(response.data);
         router.navigate("/songs");
       })
       .catch(error => {
@@ -36,9 +35,7 @@ export function afterHook(router) {
       let buttonId = button.id;
       console.log(buttonId);
       router.navigate(`songVersions?id=${buttonId}`);
-      // router.navigate(`songVersions/${buttonId}`);
     });
-    // .then(router.navigate(`songVersions/${buttonID}`));
   });
 }
 

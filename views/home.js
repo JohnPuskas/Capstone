@@ -2,6 +2,7 @@ import html from "html-literal";
 import songFilesScreenshot from "../assets/img/Song_Session_Version_Confusion.jpg";
 
 export default state => html`
+  ${window.scrollTo(0, 0)}
   <main>
     <section id="content">
       <article id="about-app" class="app-content">

@@ -2,27 +2,9 @@ import html from "html-literal";
 
 export default state =>
   html`
+    ${window.scrollTo(0, 0)}
     <main>
-      <section id="songs">
-        ${state.versions
-      .map(version => {
-        return `<div class="song-container">
-        <div class="song-title-area">
-          <h3>${version.title}</h3>
-        </div>
-        <div class="song-description-area">
-          <p>
-            ${version.changes}
-          </p>
-        </div>
-        <div class="edit-delete-buttons">
-          <button class="edit-btn">Edit</button>
-          <button class="delete-btn">Delete</button>
-        </div>
-      </div>`;
-      })
-      .join("")}
-      </section>
+    </section>
       <form id="song-form">
         <div class="song-container">
           <div class="song-title-area">
@@ -65,5 +47,24 @@ export default state =>
         </div>
         <p class="add-new">Add New</p>
       </div>
+      <section id="songs">
+        ${state.versions
+      .map(version => {
+        return `<div class="song-container">
+        <div class="song-title-area">
+          <h3>${version.title}</h3>
+        </div>
+        <div class="song-description-area">
+          <p>
+            ${version.changes}
+          </p>
+        </div>
+        <div class="edit-delete-buttons">
+          <button class="edit-btn">Edit</button>
+          <button class="delete-btn">Delete</button>
+        </div>
+      </div>`;
+      })
+      .join("")}
     </main>
   `;

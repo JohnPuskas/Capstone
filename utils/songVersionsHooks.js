@@ -2,7 +2,7 @@ import * as store from "../store";
 import axios from "axios";
 
 export function afterHook(router, queryParam) {
-  // Create a new Song
+  // Create a new song version
   document
     .querySelector("#song-form")
     .addEventListener("submit", async event => {
@@ -28,9 +28,6 @@ export function afterHook(router, queryParam) {
         )
         .then(response => {
           console.log("This the AFTER RESPONSE:", response);
-          // The below Might be the problem. I need the _id of the create Version, then push that to versions?
-          // store.songs.songs.push(response.data);
-          // .then(router.navigate("songs"))
           router.navigate(`/songVersions?id=${queryParam}`);
         })
         .catch(error => {
@@ -47,14 +44,15 @@ export async function beforeHook(queryParam, done = () => { }) {
         id: `${queryParam}`
       }
     })
-    // .then(() => {
-    //   console.log("Does this execute before render??");
-    // })
     .then(response => {
-      store.songVersions.versions = response.data.versions;
       store.songVersions.songId = queryParam;
       console.log("The songVersions page response is....:", response);
-      console.log(response.data.versions);
+      store.songVersions.versions = response.data.versions;
+
+      console.log(
+        "This is the versions order in Store:",
+        response.data.versions
+      );
       done();
     })
     .catch(error => {

@@ -46,7 +46,7 @@ export default state => html`
     </div>
 
     <section id="songs">
-      ${state.songs
+      ${state.songs.data
     .map(song => {
       return `<div class="song-container">
         <div class="song-title-area">
@@ -66,5 +66,6 @@ export default state => html`
     })
     .join("")}
     </section>
+
   </main>
 `;

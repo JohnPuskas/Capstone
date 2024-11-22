@@ -37,7 +37,7 @@ export function afterHook(router, queryParam) {
     header.style.filter = "";
     nav.style.filter = "";
     body.style.height = "";
-    body.style.overflow = "";;
+    body.style.overflow = "";
   });
   //
   document

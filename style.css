@@ -188,7 +188,8 @@ blockquote {
 #songs {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 20px;
+  padding-top: 0%;
   border-bottom: 2px solid black;
 }
 

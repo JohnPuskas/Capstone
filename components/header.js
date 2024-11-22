@@ -2,7 +2,7 @@ import html from "html-literal";
 import logo from "../assets/img/TVT_logo_clip.jpg";
 
 export default state => html`
-  <div id="sticky">
+  <div class="sticky">
     <header>
       <div class="header-bar-item">
         <img id="logo" src="${logo}" alt="Track Version Track logo" />

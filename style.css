@@ -3,6 +3,7 @@
   margin: 0%;
 }
 
+
 /* ////////////////////////////////////////////// */
 /* Header and its content styling */
 header {
@@ -18,7 +19,7 @@ header {
 /* The header is wrapped in the #sticky div
   This is to allow the option to later include nav/hamburger as sticky
 */
-#sticky {
+.sticky {
   position: sticky;
   top: 0;
 }
@@ -89,6 +90,7 @@ nav > ul {
 
 .nav-links > li:hover {
   transform: scale(1.1);
+  cursor: pointer;
 }
 
 li > a {
@@ -188,6 +190,30 @@ blockquote {
   border-bottom: 2px solid black;
 }
 
+/* For modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.8);
+  animation-duration: 0.2s;
+  animation-name: slide;
+}
+
+.modal-content {
+  position: relative;
+  margin: auto;
+  width: 100%;
+}
+
+@keyframes slide {
+  from { translate: 0 150vw;}
+  to { translate: 0 0;}
+}
+
 .song-container, #quote {
   display: grid;
   background-color: #CBD4C2;
@@ -226,7 +252,7 @@ blockquote {
   color: white;
 }
 
-.delete-btn {
+.delete-btn, .cancel-btn {
   background-color: red;
   color: #fff;
 }
@@ -241,11 +267,13 @@ button {
 
 button:hover {
   transform: scale(1.2);
+  cursor: pointer;
 }
 
 .add {
   text-align: center;
   padding: 20px;
+  margin: 0px 0px 0px 0px;
 }
 
 .add-btn {
@@ -267,6 +295,7 @@ button:hover {
 
 .add-button:hover {
   transform: scale(1.2);
+  cursor: pointer;
 }
 
 .fa-plus {

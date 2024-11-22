@@ -4,7 +4,8 @@ export default state =>
   html`
     ${window.scrollTo(0, 0)}
     <main>
-    </section>
+    <div id="modal" class="modal">
+      <div id="modal-content">
       <form id="song-form">
         <div class="song-container">
           <div class="song-title-area">
@@ -32,14 +33,17 @@ export default state =>
               type="submit"
               name="submitButton"
               id="${state.songId}"
-              class="save-btn"
+              class="save-btn button"
               value="Save"
             />
+            <button type="reset" id="cancelBtn" class="cancel-btn" value="Cancel">Cancel</>
           </div>
         </div>
       </form>
+      </div>
+    </div>
 
-      <div class="add">
+      <div id="add" class="add">
         <div class="add-btn">
           <button class="add-button">
             <i class="fa-solid fa-plus"></i>

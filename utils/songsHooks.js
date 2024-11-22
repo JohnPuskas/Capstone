@@ -1,7 +1,5 @@
 import * as store from "../store";
 import axios from "axios";
-import { default as modal } from "./modal.js";
-import nav from "../components/nav.js";
 
 export function afterHook(router) {
   function modal() {

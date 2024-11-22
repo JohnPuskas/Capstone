@@ -2,7 +2,7 @@ import html from "html-literal";
 
 export default state => html`
   ${window.scrollTo(0, 0)}
-  <main>
+  <main id="main">
     <div id="modal" class="modal">
       <div id="modal-content">
       <form id="song-form">

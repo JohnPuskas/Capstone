@@ -3,34 +3,41 @@ import axios from "axios";
 
 export function afterHook(router) {
   function modal() {
-    const modal = document.getElementById("modal");
     const header = document.querySelector(".sticky");
     const nav = document.querySelector("nav");
+    const body = document.querySelector("body");
+    const modal = document.getElementById("modal");
 
     // opens the modal
     document.getElementById("add").addEventListener("click", () => {
       modal.style.display = "flex";
       modal.style.flexDirection = "column";
-      modal.style.justifyContent = "space-between";
+      modal.style.justifyContent = "start";
       header.style.filter = "brightness(30%)";
       nav.style.filter = "brightness(30%)";
+      body.style.height = "100vh";
+      body.style.overflow = "hidden";
     });
 
-    // closes the modal if clicked outside the modal
+    // closes the modal if clicked outside the modal, and return css to default values
     window.onclick = event => {
       if (event.target == modal) {
         modal.style.display = "none";
         document.getElementById("song-form").reset();
-        header.style.filter = "brightness(100%)";
-        nav.style.filter = "brightness(100%)";
+        header.style.filter = "";
+        nav.style.filter = "";
+        body.style.height = "";
+        body.style.overflow = "";
       }
     };
 
-    // closes the modal if clicking "cancel"
+    // closes the modal if clicking "cancel", and return css to default values
     document.getElementById("cancelBtn").addEventListener("click", () => {
       modal.style.display = "none";
-      header.style.filter = "brightness(100%)";
-      nav.style.filter = "brightness(100%)";
+      header.style.filter = "";
+      nav.style.filter = "";
+      body.style.height = "";
+      body.style.overflow = "";
     });
 
     document.getElementById("song-form").addEventListener("submit", event => {

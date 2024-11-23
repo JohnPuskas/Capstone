@@ -2,37 +2,8 @@ import html from "html-literal";
 import songFilesScreenshot from "../assets/img/Song_Session_Version_Confusion.jpg";
 
 export default state => html`
+  ${window.scrollTo(0, 0)}
   <main>
-    <section id="user-login-section">
-      <div id="create-user" class="user-login">
-        <form id="new-user" name="newUser" onsubmit="">
-          <h2 class="user-heading">Create User</h2>
-          <label for="new-username">Username:</label>
-          <input
-            class="form-input"
-            type="text"
-            name="new-username"
-            id="new-username"
-            placeholder="enter a new username"
-          />
-          <input class="submit-btn" type="submit" value="submit" />
-        </form>
-      </div>
-      <div id="select-user" class="user-login">
-        <form id="existing-user" name="existingUser" onsubmit="">
-          <h2 class="user-heading">Select User</h2>
-          <label for="existing-username">Username:</label>
-          <select
-            name="existing-username"
-            id="existing-username"
-            class="form-input"
-          >
-            <option>To be populated by call to db.</option>
-          </select>
-          <input class="submit-btn" type="submit" value="submit" />
-        </form>
-      </div>
-    </section>
     <section id="content">
       <article id="about-app" class="app-content">
         <h2>What Track Version Track Is:</h2>
@@ -96,3 +67,36 @@ export default state => html`
     </section>
   </main>
 `;
+
+/*
+<section id="user-login-section">
+      <div id="create-user" class="user-login">
+        <form id="new-user" name="newUser" onsubmit="">
+          <h2 class="user-heading">Create User</h2>
+          <label for="new-username">Username:</label>
+          <input
+            class="form-input"
+            type="text"
+            name="new-username"
+            id="new-username"
+            placeholder="enter a new username"
+          />
+          <input class="submit-btn" type="submit" value="submit" />
+        </form>
+      </div>
+      <div id="select-user" class="user-login">
+        <form id="existing-user" name="existingUser" onsubmit="">
+          <h2 class="user-heading">Select User</h2>
+          <label for="existing-username">Username:</label>
+          <select
+            name="existing-username"
+            id="existing-username"
+            class="form-input"
+          >
+            <option>To be populated by call to db.</option>
+          </select>
+          <input class="submit-btn" type="submit" value="submit" />
+        </form>
+      </div>
+    </section>
+*/

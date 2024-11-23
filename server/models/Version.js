@@ -8,8 +8,8 @@ const versionSchema = new mongoose.Schema({
   },
   changes: {
     type: String,
-    required: true,
-    validate: /^[A-Za-z0-9 ]*$/
+    required: true
+    // validate: /^[A-Za-z0-9 ]*$/
   }
 });
 

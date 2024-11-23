@@ -1,18 +1,74 @@
 import html from "html-literal";
-import { default as songs } from "../store/songs";
 
 export default state =>
   html`
+    ${window.scrollTo(0, 0)}
     <main>
-      <h1>
-        This is the Song Versions page which will be dynamically populated
-      </h1>
-      <h2>
-        It shows the various versions of the song selected by the user in the
-        'Songs' page
-      </h2>
-      <p>This is the ID of the Song for which Song Versions will display:</p>
-      ${console.log(songs)}
-      <p>${songs.songs._id}</p>
+    <div id="modal" class="modal">
+      <div id="modal-content">
+      <form id="song-form">
+        <div class="song-container">
+          <div class="song-title-area">
+            <h3>
+              <input
+                type="text"
+                name="title"
+                id="title"
+                class="song-input"
+                placeholder="Enter the Version Title"
+                required
+              />
+            </h3>
+          </div>
+          <div class="song-description-area">
+            <textarea
+              name="changes"
+              id="changes"
+              class="song-input"
+              placeholder="Enter the changes for this song version"
+            ></textarea>
+          </div>
+          <div class="edit-delete-buttons">
+            <input
+              type="submit"
+              name="submitButton"
+              id="${state.songId}"
+              class="save-btn button"
+              value="Save"
+            />
+            <button type="reset" id="cancelBtn" class="cancel-btn" value="Cancel">Cancel</>
+          </div>
+        </div>
+      </form>
+      </div>
+    </div>
+
+      <div id="add" class="add">
+        <div class="add-btn">
+          <button class="add-button">
+            <i class="fa-solid fa-plus"></i>
+          </button>
+        </div>
+        <p class="add-new">Add New</p>
+      </div>
+      <section id="songs">
+        ${state.versions
+      .map(version => {
+        return `<div class="song-container">
+        <div class="song-title-area">
+          <h3>${version.title}</h3>
+        </div>
+        <div class="song-description-area">
+          <p>
+            ${version.changes}
+          </p>
+        </div>
+        <div class="edit-delete-buttons">
+          <button class="edit-btn">Edit</button>
+          <button class="delete-btn">Delete</button>
+        </div>
+      </div>`;
+      })
+      .join("")}
     </main>
   `;

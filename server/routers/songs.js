@@ -25,8 +25,8 @@ router.get("/", async (request, response) => {
   try {
     const query = request.query;
     console.log(query);
-    const data = await Song.find(query);
-
+    const data = await Song.find(query).sort({ $natural: -1 });
+    console.log("The songs router response", data);
     response.json(data);
   } catch (error) {
     console.log(error);

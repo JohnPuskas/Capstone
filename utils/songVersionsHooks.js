@@ -65,6 +65,9 @@ export function afterHook(router, queryParam) {
         )
         .then(response => {
           console.log("This the AFTER RESPONSE:", response);
+          const body = document.querySelector("body");
+          body.style.height = "";
+          body.style.overflow = "";
           router.navigate(`/songVersions?id=${queryParam}`);
         })
         .catch(error => {

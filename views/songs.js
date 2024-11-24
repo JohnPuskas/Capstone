@@ -1,13 +1,13 @@
 import html from "html-literal";
 import * as store from "../store";
-import { log } from "console";
 
 function insertPageBtns() {
-  let pageButtons = ``;
+  let pageButtons = `<button id="1" class="page-btn">&laquo;</button>`;
   for (let i = 1; i <= store.songs.totalPages; i++) {
     let pageButton = `<button id="${i}" class="page-btn">${i}</button>`;
     pageButtons += pageButton;
   }
+  pageButtons += `<button id="${store.songs.totalPages}" class="page-btn">&raquo;</button>`;
   return pageButtons;
 }
 

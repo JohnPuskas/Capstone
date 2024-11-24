@@ -1,8 +1,19 @@
 import html from "html-literal";
+import * as store from "../store";
+
+function insertPageBtns() {
+  let pageButtons = `<button id="1" class="page-btn">&laquo;</button>`;
+  for (let i = 1; i <= store.songs.totalPages; i++) {
+    let pageButton = `<button id="${i}" class="page-btn">${i}</button>`;
+    pageButtons += pageButton;
+  }
+  pageButtons += `<button id="${store.songs.totalPages}" class="page-btn">&raquo;</button>`;
+  return pageButtons;
+}
 
 export default state => html`
   ${window.scrollTo(0, 0)}
-  <main>
+  <main id="main">
     <div id="modal" class="modal">
       <div id="modal-content">
       <form id="song-form">
@@ -46,7 +57,7 @@ export default state => html`
     </div>
 
     <section id="songs">
-      ${state.songs
+      ${state.songs.data
     .map(song => {
       return `<div class="song-container">
         <div class="song-title-area">
@@ -66,5 +77,10 @@ export default state => html`
     })
     .join("")}
     </section>
-  </main>
-`;
+    <section>
+      <div class="pagination">
+        ${insertPageBtns()}
+      </div >
+    </section >
+  </main >
+  `;

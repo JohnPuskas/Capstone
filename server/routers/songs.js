@@ -23,11 +23,22 @@ router.post("/", async (request, response) => {
 
 router.get("/", async (request, response) => {
   try {
-    const query = request.query;
-    console.log(query);
-    const data = await Song.find(query).sort({ $natural: -1 });
+    const page = request.query.page ? request.query.page : 1;
+    const limit = 12;
+    const offset = (page - 1) * limit;
+    const data = await Song.find()
+      .sort({ $natural: -1 })
+      .skip(offset)
+      .limit(limit);
     console.log("The songs router response", data);
-    response.json(data);
+    console.log(request.query);
+    const count = await Song.countDocuments();
+
+    response.json({
+      data,
+      totalPages: Math.ceil(count / limit),
+      currentPage: Number(page)
+    });
   } catch (error) {
     console.log(error);
 

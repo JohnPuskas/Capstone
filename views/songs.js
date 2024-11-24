@@ -1,4 +1,15 @@
 import html from "html-literal";
+import * as store from "../store";
+import { log } from "console";
+
+function insertPageBtns() {
+  let pageButtons = ``;
+  for (let i = 1; i <= store.songs.totalPages; i++) {
+    let pageButton = `<button id="${i}" class="page-btn">${i}</button>`;
+    pageButtons += pageButton;
+  }
+  return pageButtons;
+}
 
 export default state => html`
   ${window.scrollTo(0, 0)}
@@ -66,6 +77,10 @@ export default state => html`
     })
     .join("")}
     </section>
-
-  </main>
-`;
+    <section>
+      <div class="pagination">
+        ${insertPageBtns()}
+      </div >
+    </section >
+  </main >
+  `;

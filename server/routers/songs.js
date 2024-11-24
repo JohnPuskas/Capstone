@@ -31,13 +31,13 @@ router.get("/", async (request, response) => {
       .skip(offset)
       .limit(limit);
     console.log("The songs router response", data);
-
+    console.log(request.query);
     const count = await Song.countDocuments();
 
     response.json({
       data,
       totalPages: Math.ceil(count / limit),
-      currentPage: page
+      currentPage: Number(page)
     });
   } catch (error) {
     console.log(error);

@@ -46,7 +46,7 @@ router.hooks({
           });
         break;
       case "songs":
-        utils.songsBeforeHook(done);
+        utils.songsBeforeHook(match.params, done);
         break;
       case "songVersions":
         utils.songVersionsBeforeHook(match.params.id, done);
@@ -60,7 +60,7 @@ router.hooks({
     console.log("match params already:", match.params);
 
     if (view === "songs") {
-      await utils.songsBeforeHook();
+      await utils.songsBeforeHook(match.params);
     }
 
     if (view === "songVersions") {

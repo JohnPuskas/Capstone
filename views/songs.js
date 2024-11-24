@@ -39,7 +39,7 @@ export default state => html`
             ></textarea>
           </div>
           <div class="edit-delete-buttons">
-            <input type="submit" class="save-btn button" value="Save" />
+            <input type="submit" id="save" class="save-btn button" value="Save" />
             <button type="reset" id="cancelBtn" class="cancel-btn" value="Cancel">Cancel</>
           </div>
         </div>
@@ -69,7 +69,7 @@ export default state => html`
           </p>
         </div>
         <div class="edit-delete-buttons">
-          <button class="edit-btn">Edit</button>
+          <button id=${song._id} class="edit-btn">Edit</button>
           <button class="delete-btn">Delete</button>
           <button id=${song._id} class="see-version">See Song Versions</button>
         </div>

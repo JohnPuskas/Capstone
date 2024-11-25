@@ -1,4 +1,3 @@
-import { title } from "process";
 import * as store from "../store";
 import axios from "axios";
 
@@ -23,6 +22,7 @@ export function afterHook(router, queryParam) {
       nav.style.filter = "brightness(30%)";
       body.style.height = "100vh";
       body.style.overflow = "hidden";
+      window.scrollTo(0, 0);
     });
 
     // Edit an existing song
@@ -40,6 +40,7 @@ export function afterHook(router, queryParam) {
         nav.style.filter = "brightness(30%)";
         body.style.height = "100vh";
         body.style.overflow = "hidden";
+        window.scrollTo(0, 0);
         //Change the submit button id to 'update' to trigger PUT req
         submitButton.id = "update";
         submitButton.value = "Update";
@@ -138,8 +139,6 @@ export function afterHook(router, queryParam) {
               body.style.height = "";
               body.style.overflow = "";
               store.songs.currentPage = response.data.currentPage;
-              // store.songs.songs[""] = response.data.data;
-              // store.songs.songs.data.["_id"](response.data);
 
               // Stay at the current pagination page upon Song update.
               router.navigate(`songs?page=${response.data.currentPage}`);
@@ -175,10 +174,6 @@ export function afterHook(router, queryParam) {
 
 // Display songs
 export async function beforeHook(queryParams, done = () => { }) {
-  // let pageNumber = 1;
-  // if (queryParams != null) {
-  //   pageNumber = queryParams.page;
-  // }
   let pageNumber = queryParams["page"];
   pageNumber = pageNumber ? pageNumber : 1;
   console.log(pageNumber, typeof pageNumber);

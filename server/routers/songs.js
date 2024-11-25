@@ -30,8 +30,8 @@ router.get("/", async (request, response) => {
       .sort({ $natural: -1 })
       .skip(offset)
       .limit(limit);
-    console.log("The songs router response", data);
-    console.log(request.query);
+    // console.log("The songs router response", data);
+    // console.log(request.query);
     const count = await Song.countDocuments();
 
     response.json({
@@ -41,6 +41,37 @@ router.get("/", async (request, response) => {
     });
   } catch (error) {
     console.log(error);
+
+    return response.status(500).json(error.errors);
+  }
+});
+
+router.put("/", async (request, response) => {
+  try {
+    const body = request.body;
+    console.log("Request body:", body);
+    const songId = body["_id"];
+    console.log("SongId:", songId);
+    console.log("body title:", body["title"]);
+    const data = await Song.findByIdAndUpdate(
+      songId,
+      {
+        $set: {
+          title: body["title"],
+          description: body["description"]
+        }
+      },
+      {
+        new: true,
+        runValidators: true
+      }
+    );
+    response.json({ data, currentPage: body["currentPage"] });
+  } catch (error) {
+    console.log(error);
+
+    if ("name" in error && error.name === "ValidationError")
+      return response.status(400).json(error.errors);
 
     return response.status(500).json(error.errors);
   }

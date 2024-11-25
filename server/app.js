@@ -18,6 +18,13 @@ db.once(
 
 const app = express();
 
+const logging = (request, response, next) => {
+  console.log(
+    `${request.method} ${request.url} ${new Date().toLocaleString("en-us")}`
+  );
+  next();
+};
+
 // CORS Middleware
 const cors = (req, res, next) => {
   res.setHeader(
@@ -35,6 +42,7 @@ const cors = (req, res, next) => {
 
 app.use(cors);
 app.use(express.json());
+app.use(logging);
 
 app.get("/status", (request, response) => {
   response.json({ message: "Service Healthy" });

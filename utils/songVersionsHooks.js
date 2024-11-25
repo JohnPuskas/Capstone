@@ -17,6 +17,7 @@ export function afterHook(router, queryParam) {
     nav.style.filter = "brightness(30%)";
     body.style.height = "100vh";
     body.style.overflow = "hidden";
+    window.scrollTo(0, 0);
   });
 
   // closes the modal if clicked outside the modal

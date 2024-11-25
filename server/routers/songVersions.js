@@ -24,9 +24,9 @@ router.put("/", async (request, response) => {
   try {
     const body = request.body;
     console.log("Request body:", body);
-    console.log("Request query:", request.query);
+    // console.log("Request query:", request.query);
     const songId = request.query.id;
-
+    console.log(songId);
     const data = await Song.findByIdAndUpdate(
       songId,
       {

@@ -61,6 +61,7 @@ router.hooks({
     console.log("match params already:", match.params);
 
     if (view === "songs") {
+      match.params = match.params ? match.params : 1;
       await utils.songsBeforeHook(match.params);
     }
 
@@ -75,6 +76,7 @@ router.hooks({
 
 
     if (view === "songs") {
+      match.params = match.params ? match.params : 1;
       utils.songsAfterHook(router, match.params);
     }
 

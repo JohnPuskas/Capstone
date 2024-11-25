@@ -32,7 +32,7 @@ export default state =>
             <input
               type="submit"
               name="submitButton"
-              id="${state.songId}"
+              id="save"
               class="save-btn button"
               value="Save"
             />
@@ -64,8 +64,8 @@ export default state =>
           </p>
         </div>
         <div class="edit-delete-buttons">
-          <button class="edit-btn">Edit</button>
-          <button class="delete-btn">Delete</button>
+          <button id=${version._id} class="edit-btn">Edit</button>
+          <button id=${version._id} class="delete-btn">Delete</button>
         </div>
       </div>`;
       })

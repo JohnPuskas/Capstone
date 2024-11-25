@@ -1,5 +1,7 @@
 import { Router } from "express";
 import Song from "../models/Song.js";
+import { version } from "os";
+import Version from "../models/Version.js";
 
 const router = Router();
 
@@ -7,9 +9,18 @@ const router = Router();
 router.get("/", async (request, response) => {
   try {
     console.log("Here is the GET req query:", request.query);
-    const data = await Song.findById(request.query.id);
+    let data = await Song.findById(request.query.id);
     // console.log("This is the data from the GET request", data);
     await data.versions.reverse();
+    // ? Should I use aggregate to sort the nested array of versions?
+    // ? Am I using incorrectly?
+    // Song.aggregate([
+    //   { $match: { _id: request.query.id } },
+    //   { $unwind: "$versions" },
+    //   { $sort: { $natural: -1 } },
+    //   { $group: { _id: "$_id", versions: { $push: "$versions" } } }
+    // ]);
+    console.log(Song);
     // console.log("The songVersions GET data", data);
     response.json(data);
   } catch (error) {
@@ -24,22 +35,48 @@ router.put("/", async (request, response) => {
   try {
     const body = request.body;
     console.log("Request body:", body);
-    // console.log("Request query:", request.query);
+    console.log("Request query:", request.query);
     const songId = request.query.id;
-    console.log(songId);
-    const data = await Song.findByIdAndUpdate(
-      songId,
-      {
-        $push: {
-          versions: body
+    console.log("This is the songs ID:", songId);
+
+    /*
+      Check if there is a Version ID in the request, If yes, then Update the Version
+      Else if there is not a VersionID in the request, push the new Version.
+    */
+    if (body._id) {
+      const versionId = body._id;
+      console.log("this is the version ID:", versionId);
+      console.log("The Version ID Exists!");
+      // const awaitSongParent = findById(songId);
+      const data = await Song.findOneAndUpdate(
+        { "versions._id": versionId },
+        {
+          $set: {
+            "versions.$": body
+          }
+        },
+        {
+          new: true,
+          runValidators: true
         }
-      },
-      {
-        new: true,
-        runValidators: true
-      }
-    );
-    response.json(data);
+      );
+      console.log(data);
+      response.json(data);
+    } else {
+      const data = await Song.findByIdAndUpdate(
+        songId,
+        {
+          $push: {
+            versions: body
+          }
+        },
+        {
+          new: true,
+          runValidators: true
+        }
+      );
+      response.json(data);
+    }
   } catch (error) {
     console.log(error);
 

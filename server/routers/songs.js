@@ -66,7 +66,7 @@ router.put("/", async (request, response) => {
         runValidators: true
       }
     );
-    response.json(data);
+    response.json({ data, currentPage: body["currentPage"] });
   } catch (error) {
     console.log(error);
 

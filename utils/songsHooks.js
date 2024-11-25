@@ -123,7 +123,8 @@ export function afterHook(router, queryParam) {
           const requestData = {
             _id: songId,
             title: inputList.title.value,
-            description: inputList.description.value
+            description: inputList.description.value,
+            currentPage: store.songs.currentPage
           };
 
           console.log("Request Body", requestData);
@@ -136,13 +137,13 @@ export function afterHook(router, queryParam) {
               const body = document.querySelector("body");
               body.style.height = "";
               body.style.overflow = "";
+              store.songs.currentPage = response.data.currentPage;
+              // store.songs.songs[""] = response.data.data;
               // store.songs.songs.data.["_id"](response.data);
 
               // Stay at the current pagination page upon Song update.
-              router.navigate(`/songs`);
+              router.navigate(`songs?page=${response.data.currentPage}`);
             })
-            // router.navigate(`/songs?page=${queryParam.currentPage}`);
-
             .catch(error => {
               console.log("I broke it!", error);
             });

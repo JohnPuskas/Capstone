@@ -70,7 +70,7 @@ export default state => html`
         </div>
         <div class="edit-delete-buttons">
           <button id=${song._id} class="edit-btn">Edit</button>
-          <button class="delete-btn">Delete</button>
+          <button id=${song._id} class="delete-btn">Delete</button>
           <button id=${song._id} class="see-version">See Song Versions</button>
         </div>
       </div>`;

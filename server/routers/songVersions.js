@@ -1,7 +1,5 @@
 import { Router } from "express";
 import Song from "../models/Song.js";
-import { version } from "os";
-import Version from "../models/Version.js";
 
 const router = Router();
 
@@ -12,14 +10,7 @@ router.get("/", async (request, response) => {
     let data = await Song.findById(request.query.id);
     // console.log("This is the data from the GET request", data);
     await data.versions.reverse();
-    // ? Should I use aggregate to sort the nested array of versions?
-    // ? Am I using incorrectly?
-    // Song.aggregate([
-    //   { $match: { _id: request.query.id } },
-    //   { $unwind: "$versions" },
-    //   { $sort: { $natural: -1 } },
-    //   { $group: { _id: "$_id", versions: { $push: "$versions" } } }
-    // ]);
+
     console.log(Song);
     // console.log("The songVersions GET data", data);
     response.json(data);
@@ -47,7 +38,6 @@ router.put("/", async (request, response) => {
       const versionId = body._id;
       console.log("this is the version ID:", versionId);
       console.log("The Version ID Exists!");
-      // const awaitSongParent = findById(songId);
       const data = await Song.findOneAndUpdate(
         { "versions._id": versionId },
         {

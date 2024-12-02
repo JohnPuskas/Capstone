@@ -150,7 +150,29 @@ export function afterHook(router, queryParam) {
   }
 
   modal();
+
+  const deleteButtons = document.querySelectorAll(".delete-btn");
+  // Add event listeners to Edit button for all Songs
+  deleteButtons.forEach(deleteButton => {
+    deleteButton.addEventListener("click", async () => {
+      const songVersionId = deleteButton.id;
+      const requestData = {
+        songVersionId
+      };
+      console.log("Here is the DELETE requestData:", requestData);
+      await axios
+        .delete(
+          `${process.env.TVT_API_URL}/songVersions?id=${queryParam}&versionID=${songVersionId}`,
+          requestData
+        )
+        .then(() => {
+          // Stay at the current page.
+          router.navigate(`/songVersions?id=${queryParam}`);
+        });
+    });
+  });
 }
+
 export async function beforeHook(queryParam, done = () => { }) {
   console.log(queryParam);
   await axios

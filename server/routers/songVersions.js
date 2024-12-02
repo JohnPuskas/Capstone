@@ -1,5 +1,6 @@
 import { Router } from "express";
 import Song from "../models/Song.js";
+import songVersions from "../../store/songVersions.js";
 
 const router = Router();
 
@@ -72,6 +73,30 @@ router.put("/", async (request, response) => {
 
     if ("name" in error && error.name === "ValidationError")
       return response.status(400).json(error.errors);
+
+    return response.status(500).json(error.errors);
+  }
+});
+
+router.delete("/", async (request, response) => {
+  try {
+    const body = request.body;
+    console.log("Request body:", body);
+    console.log("Request query:", request.query);
+    const songId = request.query.id;
+    console.log("This is the songs ID:", songId);
+    const versionId = request.query.versionID;
+    console.log(typeof versionId);
+    console.log("this is the version ID:", versionId);
+    let song = await Song.findById(songId);
+    console.log("This is the song:", song);
+    await song.versions.pull(versionId);
+    const data = await song.save();
+
+    console.log("This is the data:", data);
+    response.json(data);
+  } catch (error) {
+    console.log(error);
 
     return response.status(500).json(error.errors);
   }

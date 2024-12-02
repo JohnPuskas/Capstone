@@ -77,4 +77,18 @@ router.put("/", async (request, response) => {
   }
 });
 
+router.delete("/", async (request, response) => {
+  try {
+    // console.log("REQUEST:", request);
+    // console.log("REQUEST BODY:", request.body);
+    const songId = request.query.id;
+    console.log("SongId:", songId);
+
+    const data = await Song.findByIdAndDelete(songId);
+    response.json(data);
+  } catch (error) {
+    return response.status(500).json(error.errors);
+  }
+});
+
 export default router;

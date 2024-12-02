@@ -5,11 +5,11 @@ const songSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
-    validate: /^[A-Za-z0-9 ]*$/
+    // validate: /^[A-Za-z0-9 ]*$/
   },
   description: {
-    type: String,
-    validate: /^[A-Za-z0-9 ]*$/
+    type: String
+    // validate: /^[A-Za-z0-9 ]*$/
   },
   versions: [version.schema]
   // type: array of SongVersion (similar to Notes from the curriculum ch.9.4)

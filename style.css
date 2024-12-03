@@ -181,6 +181,11 @@ blockquote {
   font-size: 18px;
 }
 
+#how-works-center {
+  padding: 20px;
+  text-align: center;
+}
+
   /* ////////////////////////////////////////////// */
 /* Styling for the 'Songs' page */
 

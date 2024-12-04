@@ -10,20 +10,24 @@ export default state => html`
         <p>
           Welcome to Track Version Track! Have you ever had trouble tracking
           <i>what</i> changes were made in <i>which</i> versions of a song
-          within a song project? With Track Version Track, you can turn a
-          confusing mess like this:
+          within a song project? With Track Version Track, you can get past a
+          confusing mess of filenames like this:
         </p>
         <img
           class="demo-image"
           src="${songFilesScreenshot}"
           alt="screenshot of a confusing mess of file names"
         />
-        <p>Into this:</p>
-        <img
-          class="demo-image"
-          src=""
-          alt="screenshot of this app's organizational feature"
-        />
+        <p>
+          Using Track Version Track, you are able to create messages that
+          describe the changes made in any version of a song, in as great of
+          detail as you like. You will no longer need to dig through old
+          versions of a song to find a specific file that may no longer exist in
+          your current session. Or if you are working in collaboration with
+          another artist, you can easily label your versions with descriptions
+          that will allow your collaborator to be informed of what updates you
+          have made.
+        </p>
       </article>
       <article class="app-content bottom-app-content">
         <h2>How It Works:</h2>
@@ -37,8 +41,8 @@ export default state => html`
           <li>
             <p>
               Click on any individual song project to enter your specific song
-              version filenames. For each filename, enter a changelog (the
-              description of changes that were made in that version)
+              version filenames. For each filename, enter a description of
+              changes that were made in that version.
             </p>
           </li>
           <li>
@@ -47,17 +51,10 @@ export default state => html`
               place, and one page.
             </p>
           </li>
-          <li>
-            <p>
-              You also have the option of entering your ToDo list for the song
-              project. Add items as they come up. Cross off items as they are
-              completed, and they are saved into a Done List.
-            </p>
-          </li>
         </ol>
-        <p>
+        <h3 id="how-works-center">
           That's it! You'll never again lose track of where changes were made!
-        </p>
+        </h3>
       </article>
       <article id="quote" class="app-content">
         <h2>Get Inspired:</h2>
